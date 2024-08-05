@@ -1,0 +1,20 @@
+<div class="topbar">
+    <div class="toggle" (click)="onClickToggle()">
+        <ion-icon name="menu-outline"></ion-icon>
+    </div>
+    
+    <div class="search" *ngIf="showSearch">
+        <label (click)="navigateToSearchList()">
+            <input type="text" placeholder="Search here" [(ngModel)]="searchTerm" (input)="onSearchChange()">
+            <ion-icon name="search-outline"></ion-icon>
+        </label>
+    </div>
+    <div class="right-section">
+        <a *ngIf="!checkLogin()" routerLink="/login" class="btn">Login</a>
+        <p *ngIf="checkLogin()" class="userNameCss">Welcome, {{username}}!</p>
+        <div *ngIf="checkLogin()" class="user">
+            <img src="assets/profileImages/{{userImg}}" alt="">
+        </div>
+        
+    </div>
+</div>

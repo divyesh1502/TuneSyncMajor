@@ -1,0 +1,82 @@
+<div class="song-Container">
+  <div class="cardHeader">
+    <h2>Song Analysis</h2>
+    <!-- <a href="#" class="btn">Create New Playlist</a> -->
+  </div>
+
+
+  <div class="card-container">
+    <div class="playlist-hero-container">
+      <div class="playlist-item-cover" style="padding-top: 0;">
+        <!-- <p>{{ playlistDetails?.playlist_Name ? (playlistDetails.playlist_Name[0] | uppercase) : '' }}</p> -->
+        <img src="{{songs.imageFilePath}}" alt="">
+      </div>
+      <div class="playlist-item-details">
+        <h2>{{ songs.songName }}</h2>
+        <p><ion-icon name="musical-notes-outline"></ion-icon> By {{ artistName }}</p>
+        <button routerLink="/home/play-music/{{songs.id}}" class="btn btn-success" style="margin-right: 20px;"><ion-icon name="play-circle-outline"></ion-icon></button>
+        <button (click)="removeSong(songs.id)" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></button>
+      </div>
+    </div>
+    <div class="card-title mt-4" style="width: 100%;">
+      <h2>Review & Ratings</h2>
+    </div>
+    
+
+    <div class="ratings-reviews-info">
+
+      <div class="left-sec">
+        <div class="average-rating-details">
+          <h2>{{averageRatingCnt | number:'1.1-1'}} <ion-icon name="star"></ion-icon></h2>
+          <p>{{reviewData.length}} Verified Listener</p>
+        </div>
+      </div>
+      <div class="right-sec">
+        <div class="rating-row">
+          <p>5 <ion-icon name="star"></ion-icon></p>
+          <div class="progress-bar" style="background-color: #569756;"></div>
+          <p>{{ratingCnt["5"]}}</p>
+        </div>
+        <div class="rating-row">
+          <p>4 <ion-icon name="star"></ion-icon></p>
+          <div class="progress-bar" style="background-color: #569756;"></div>
+          <p>{{ratingCnt["4"]}}</p>
+        </div>
+        <div class="rating-row">
+          <p>3 <ion-icon name="star"></ion-icon></p>
+          <div class="progress-bar" style="background-color: rgb(51 124 14);"></div>
+          <p>{{ratingCnt["3"]}}</p>
+        </div>
+        <div class="rating-row">
+          <p>2 <ion-icon name="star"></ion-icon></p>
+          <div class="progress-bar" style="background-color: rgb(223, 168, 16);"></div>
+          <p>{{ratingCnt["2"]}}</p>
+        </div>
+        <div class="rating-row">
+          <p>1 <ion-icon name="star"></ion-icon></p>
+          <div class="progress-bar" style="background-color: rgb(203, 41, 41);"></div>
+          <p>{{ratingCnt["1"]}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rating-reviews-lists">
+      <div class="review-card" *ngFor="let review of reviewData">
+        <div class="user-info">
+          <img src="{{review.userImg}}" alt="img">
+          <p>{{review.userName}}</p>
+        </div>
+        <div class="ratings-star">
+          <ion-icon *ngFor="let i of getLoopCount(review.rating)" name="star"></ion-icon>
+          <ion-icon *ngFor="let i of getLoopCount(review.notRatingStarCnt)" name="star-outline"></ion-icon>
+        </div>
+        <div class="review-info">
+          <h3 class="review-title">{{review.review_title}}</h3>
+          <p class="review-desc">{{review.review_desc}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

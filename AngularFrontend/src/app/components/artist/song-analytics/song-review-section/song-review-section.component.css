@@ -1,0 +1,155 @@
+.card-title {
+    margin-top: 15px;
+    color: #4e4747;
+}
+.card-title h2{
+    font-size: 21px;
+}
+
+.ratings-reviews-info {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.left-sec {
+    width: 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right-sec {
+    width: 50%;
+    padding: 15px 25px;
+    border-left: 2px solid gray;
+}
+.rating-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px;
+    color: #000000b8;
+}
+
+.average-rating-details h2 {
+    text-align: center;
+    font-size: 55px;
+}
+.average-rating-details h2 ion-icon {
+    text-align: center;
+    font-size: 30px;
+    color: #569756;
+} 
+.average-rating-details p{
+    color: gray;
+    font-size: 18px;
+    margin: 0;
+}
+
+.rating-row p{
+    font-size: 22px;
+    margin: 0;
+}
+.rating-row p:last-child{
+    font-size: 16px;
+    color: gray;
+}
+.rating-row p ion-icon{
+    font-size: 14px;
+}
+
+.rating-row .progress-bar{
+    height: 4px;
+    width: 79%;
+    border-radius: 15px;
+}
+
+.rating-reviews-lists {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.rating-reviews-lists .review-card {
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 1px 3px 18px rgb(0 0 0 / 12%);
+    margin-bottom: 15px;
+}
+.review-card .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.review-card .user-info img{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.review-card .user-info p{
+    font-size: 17px;
+    margin: 0;
+}
+.ratings-star {
+    margin-top: 10px;
+}
+.ratings-star ion-icon{
+    margin-right: 5px;
+    color: #ffa41c;
+}
+h3.review-title {
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+p.review-desc {
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.rating-reviews-form {
+    width: 100%;
+    margin-top: 10px;
+    background: #2a218512;
+    padding: 18px;
+    border-radius: 12px;
+}
+
+.review-form-control {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form-control label {
+    font-size: 17px;
+    color: #524d4d;
+    margin-bottom: 10px;
+}
+
+.review-form-control input, .review-form-control textarea {
+    padding: 5px 9px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid gray;
+    color: black;
+}
+.review-form-star ion-icon{
+    font-size: 32px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.filled-star{
+    color: #ffa41c;
+}
+
+.playlist-item-details ion-icon{
+    font-size: 22px;
+}

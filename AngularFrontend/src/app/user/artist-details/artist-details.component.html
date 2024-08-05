@@ -1,0 +1,45 @@
+<div class="main-container">
+  <app-side-bar></app-side-bar>
+  
+  <div class="main">
+    <app-top-bar (toggleMenu)="toggleNavigation()"></app-top-bar>
+  
+    <div class="artist-hero-container">
+      <img class="artist-cover" src="{{artistImg}}" alt="">
+      <div class="artist-details">
+          <p>{{artistName}}</p>
+      </div>
+    </div>
+    
+    <div class="details">
+      <div class="song-Container">
+          <div class="cardHeader">
+              <h2>Songs by {{artistName}}</h2>
+          </div>
+    
+          <div class="card-container">
+            <div class="music-card" *ngFor="let song of artistSongs">
+              <img src="{{song.imageFilePath}}" alt="">
+              <div class="song-details">
+                <h3 class="song-title">{{ song.songName }}</h3>
+                <p>{{ song.artistName }}</p>
+                <div class="ratings">
+                  <ion-icon *ngFor="let star of getStarRating(song.averageRating)" [name]="star" class="gold-star"></ion-icon>
+                </div>
+                <div class="more-info">
+                  <span class="category">{{ song.category }}</span>
+                  <span class="language">{{ song.language }}</span>
+                </div>
+                <div class="play">
+                  <a routerLink="/home/play-music/{{song.id}}">
+                      <span class="fa fa-play"></span>
+                  </a>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  
+  </div>
+</div>

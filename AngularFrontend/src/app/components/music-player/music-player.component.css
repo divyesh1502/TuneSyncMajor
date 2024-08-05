@@ -1,0 +1,200 @@
+/* Load the custom CSS style file */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+
+/* Using flex with the column direction to
+align items in a vertical direction */
+.player {
+    transition: background-color .5s;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 20px 0px blue;
+    border-radius: 22px;
+    padding-bottom: 20px;
+}
+
+.music-details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.track-art-carousel {
+    position: relative;
+    width: 250px; /* Set the width of the carousel */
+    height: 250px; /* Set the height of the carousel */
+    overflow: hidden; /* Hide overflow to crop the images */
+}
+
+.track-art {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease-in-out; /* Add transition for smooth animation */
+    /* Define animation for sliding */
+    border-radius: 50%;
+    animation: slideTrackArt 0.5s ease;
+}
+
+@keyframes slideTrackArt {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Changing the font sizes to suitable ones */
+.now-playing {
+    font-size: 1rem;
+}
+
+.track-name {
+    font-size: 3rem;
+}
+
+.track-artist {
+    font-size: 1.5rem;
+}
+
+/* Using flex with the row direction to
+align items in a horizontal direction */
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* Align buttons horizontally */
+    margin-top: 20px; /* Add some top margin */
+}
+
+.playpause-track,
+.prev-track,
+.next-track {
+    padding: 25px;
+    opacity: 0.8;
+    margin-right: 20px;
+    margin: 0 10px; /* Add margin to all sides */
+    /* Smoothly transition the opacity */
+    transition: opacity .2s;
+}
+
+/* Change the opacity when mouse is hovered */
+.playpause-track:hover,
+.prev-track:hover,
+.next-track:hover {
+    opacity: 1.0;
+}
+
+/* Define the slider width so that it scales properly */
+.slider_container {
+    width: 80%; /* Enlarge the slider container */
+    max-width: 800px; /* Add max-width to prevent it from becoming too wide */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modify the appearance of the slider */
+.seek_slider, .volume_slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: black;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+/* Modify the appearance of the slider thumb */
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: rgb(63, 92, 220);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Change the opacity when mouse is hovered */
+.seek_slider:hover,
+.volume_slider:hover {
+    opacity: 1.0;
+}
+
+.seek_slider {
+    width: 60%;
+}
+
+.volume_slider {
+    width: 30%;
+}
+
+.current-time,
+.total-duration {
+    padding: 10px;
+}
+
+i.fa-volume-down,
+i.fa-volume-up {
+    padding: 10px;
+}
+
+/* Change the mouse cursor to a pointer
+when hovered over */
+i.fa-play-circle,
+i.fa-pause-circle,
+i.fa-step-forward,
+i.fa-step-backward {
+    cursor: pointer;
+}
+
+/* Additional controls */
+.additional-controls {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+/* Style the like button */
+.like-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    outline: none;
+    color: red; /* Change color as needed */
+    margin: 0 10px; /* Add margin to all sides */
+}
+
+/* Style the add-to-playlist button */
+.add-to-playlist {
+    padding: 25px;
+    opacity: 0.8;
+    /* Smoothly transition the opacity */
+    transition: opacity .2s;
+    margin: 0 10px; /* Add margin to all sides */
+}
+
+/* Change the opacity when mouse is hovered */
+.add-to-playlist:hover {
+    opacity: 1.0;
+}
+
+/* Style the '+' sign */
+.add-to-playlist span {
+    font-size: 1.5rem; /* Adjust the font size */
+    margin-left: 5px; /* Add some space between the icon and the '+' sign */
+}

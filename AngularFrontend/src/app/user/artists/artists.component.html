@@ -1,0 +1,27 @@
+<div class="main-container">
+    <app-side-bar></app-side-bar>
+
+    <div class="main">
+        <app-top-bar (toggleMenu)="toggleNavigation()"></app-top-bar>
+        <div class="details">
+            <div class="song-Container">
+                <div class="cardHeader">
+                    <h2>Top Artists</h2>
+                    <a href="#" class="btn">View All</a>
+                </div>
+                
+            
+                <div class="card-container">
+                    
+                    <div class="artist-card" *ngFor="let artist of artistData">
+                        <a routerLink="/artists/artist-details/{{artist.id}}">
+                            <img src="{{artist.profileImage}}" alt="">
+                        </a>
+                        <div class="artist-name">{{ artist.name }}</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

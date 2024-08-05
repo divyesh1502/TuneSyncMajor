@@ -1,0 +1,27 @@
+<div class="recentOrders">
+  <div class="cardHeader">
+    <h2>All Users</h2>
+    <!-- <a href="#" class="btn">View All</a> -->
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Profile</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Remove</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td style="width: 140px;"><img class="profile-picture" src="assets/imgs/customer01.jpg" alt=""></td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td><ion-icon class="removeIcon" name="person-remove-outline" (click)="softDeleteUser(user.id)"></ion-icon></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

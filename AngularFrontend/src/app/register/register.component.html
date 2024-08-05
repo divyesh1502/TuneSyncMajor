@@ -1,0 +1,15 @@
+<form [formGroup]="registrationForm" (ngSubmit)="register()">
+    <input type="text" formControlName="name" placeholder="Name" required>
+    <input type="text" formControlName="username" placeholder="Username" required>
+    <input type="text" formControlName="phone" placeholder="Phone" required>
+    <input type="email" formControlName="email" placeholder="Email" required>
+    <input type="password" formControlName="password" placeholder="Password" required>
+    <!-- Assuming role is a dropdown/select input -->
+    <select id="role" formControlName="role">
+        <option value="1">User</option>
+        <option value="0">Admin</option>
+        <option value="2">Artist</option>
+    </select>
+    <button type="submit">Register</button>
+  </form>
+  

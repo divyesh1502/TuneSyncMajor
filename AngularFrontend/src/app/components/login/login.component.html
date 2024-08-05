@@ -1,0 +1,135 @@
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div class="login-wrapper my-4" style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+    <div class="login-container">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+          <div class="front">
+            <img src="assets/imgs/backImg.jpg" alt="">
+          </div>
+          <div class="back">
+            <img class="backImg" src="assets/imgs/frontImg.jpg" alt="">
+            <div class="text">
+              <span class="text-1">TuneSync: Where Music Finds Its Home</span>
+              <span class="text-2">Discover, Listen, Repeat</span>
+            </div>
+          </div>
+        </div>
+        <div class="forms">
+          <div class="form-content">
+            <div class="login-form">
+              <div class="title">Login</div>
+              <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="input-boxes">
+                  <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input id="emailId" type="text" formControlName="email" placeholder="Enter your email" name="email">
+                  </div>
+
+                  <small *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+                    *Email is not valid
+                  </small>
+                  
+                  <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input id="passwordId" type="password" formControlName="password" placeholder="Enter your password" name="password">
+                  </div>
+
+                  <small *ngIf="loginForm.get('password').errors?.['required'] && loginForm.get('password').touched">
+                    *Password is required field
+                  </small>
+                  
+                  <!-- <div class="text"><a routerLink="forgot-password">Forgot password?</a></div> -->
+                  <div class="button input-box">
+                    <input id="loginSubmitId" type="submit" value="Login" [disabled]="!loginForm.valid">
+                  </div>
+                  <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+                </div>
+              </form>
+            </div>  
+            <div class="signup-form">
+              <div class="title">Signup</div>
+              <form [formGroup]="registrationForm" (ngSubmit)="register()">
+
+                <div class="row" id="img-preview">
+                  <img src="assets/imgs/{{showUserImg}}" alt="temp">
+                </div> 
+                <div class="input-boxes">
+                  
+                  <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Enter Full Name" formControlName="name">
+                  </div>
+
+                  <small *ngIf="registrationForm.get('name').errors?.['required'] && registrationForm.get('name').touched">
+                    *Name is required field
+                  </small>
+
+                  <div class="input-box">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <select name="role" id=""  formControlName="role" required >
+                      <option value="" selected>Select Role</option>
+                      <option value="1">User</option>
+                      <option value="2">Artist</option>
+                    </select>
+                  </div>
+
+                  <small *ngIf="registrationForm.get('role').errors?.['required'] && registrationForm.get('role').touched">
+                    *Please select role
+                  </small>
+                  
+                  <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Enter your email" required formControlName="email">
+                  </div>
+
+                  <small *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">
+                    *Email is not valid
+                  </small>
+
+                  <div class="input-box">
+                    <i class="fa fa-phone-square" style="transform: rotateY(180deg);"></i>
+                    <input type="number" placeholder="Enter your Phone number" required formControlName="phone">
+                  </div>
+                  <small *ngIf="registrationForm.get('phone').errors?.['required'] && registrationForm.get('phone').touched">
+                    *Phone number is required field
+                  </small>
+
+                  <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Enter your password" required formControlName="password" name="password">
+                  </div>
+                  
+                  <small *ngIf="registrationForm.get('password').errors?.['required'] && registrationForm.get('password').touched">
+                    *Password is required field
+                  </small>
+                  <small *ngIf="registrationForm.get('password').errors?.['pattern'] && registrationForm.get('password').touched">
+                    *Password must contain at least 8 characters including capital letter, small letters, number and special character.
+                  </small>
+                  
+                  <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Confirm password" required name="cpassword" formControlName="cpassword">
+                  </div>
+                  <small *ngIf="registrationForm.hasError('passwordMismatch') && registrationForm.get('cpassword').touched">
+                    *Please enter same password
+                  </small>
+
+                  <div class="row text-center">
+                    <div id="img-preview"></div>
+                    <input type="file" id="userImg" name="userImg" accept="image/*" (change)="onFileSelected($event)"/>
+                    <label for="userImg">Choose Profile Picture</label>
+                  </div>
+                  <div class="button input-box">
+                    <input type="submit" value="Register" [disabled]="!registrationForm.valid">
+                  </div>
+                  <div class="text sign-up-text">Already have an account? <label #flip for="flip">Login now</label></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

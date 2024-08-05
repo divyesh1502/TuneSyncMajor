@@ -1,0 +1,37 @@
+<div class="recentOrders">
+  <div class="cardHeader">
+    <h2>All Artists</h2>
+    <!-- <a href="#" class="btn">View All</a> -->
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Profile</td>
+        <td>Name</td>
+        <td>Number of Songs</td>
+        <td>Email</td>
+        <td>Status</td>
+        <td>Remove</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of artists">
+        <td style="width: 140px;"><img class="profile-picture" src="{{user.profileImage}}" alt=""></td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.artistSongCnt }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <select [(ngModel)]="user.isApproved" (change)="updateUserStatus(user.id, user.isApproved)">
+            <option value="0" [selected]="user.isApproved === 0">Pending</option>
+            <option value="1" [selected]="user.isApproved === 1">Approved</option>
+            <option value="2" [selected]="user.isApproved === 2">Rejected</option>
+          </select>
+        </td>
+        <td><ion-icon (click)="softDeleteUser(user.id)" class="removeIcon" name="person-remove-outline"></ion-icon></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

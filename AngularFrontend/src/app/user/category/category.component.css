@@ -1,0 +1,24 @@
+/* Category Card */
+
+.category-card {
+    width: 275px;
+    height: 152px;
+    margin-bottom: 28px;
+    background: linear-gradient(135deg, #eb91c0, var(--blue));
+    border-radius: 10px;
+    box-shadow: 1px 0px 12px 0px rgb(63 51 201 / 55%);
+    overflow-x: hidden;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.category-card:hover{
+    transform: translateY(8px);
+}
+
+.category-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 89%;
+    color: white;
+}

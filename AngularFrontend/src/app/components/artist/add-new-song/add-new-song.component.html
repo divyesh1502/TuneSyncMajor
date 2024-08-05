@@ -1,0 +1,107 @@
+
+<div class="main-container">
+    <app-side-bar></app-side-bar>
+    <div class="main">
+      <app-top-bar (toggleMenu)="toggleNavigation()"></app-top-bar>
+    
+      <div class="details">
+        <div class="song-Container">
+            <div class="cardHeader">
+                <h2>Add New Song</h2>
+                <!-- <a href="#" class="btn">View All</a> -->
+            </div>
+            
+      
+            <div class="form-container">
+              <form [formGroup]="addSongForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                <div class="form-item">
+                  <label for="songTitle">Song Title:</label>
+                  <input type="text" formControlName="songTitle" name="songTitle" id="songTitle" placeholder="Enter song title" required>
+                </div>
+                <small *ngIf="addSongForm.get('songTitle').errors?.['required'] && addSongForm.get('songTitle').touched">
+                  *Please enter song title
+                </small>
+                <div class="form-item">
+                  <label for="songCategory">Song Category:</label>
+                  <select  formControlName="songCategory" name="songCategory" id="songCategory">
+                    <option value="" selected>Select Category</option>
+                    <option value="Romantic">Romantic</option>
+                    <option value="Classic">Classic</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Love">Love</option>
+                    <option value="Party">Party</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <small *ngIf="addSongForm.get('songCategory').errors?.['required'] && addSongForm.get('songCategory').touched">
+                  *Please select song category
+                </small>
+                <div class="form-item">
+                  <label for="songLanguage">Song Language:</label>
+                  <select formControlName="songLanguage" name="songLanguage" id="songLanguage">
+                    <option value="">Select  Language</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Marathi">Marathi</option>
+                    <option value="English">English</option>
+                    <option value="Tamil">Tamil</option>
+                    <option value="Gujrathi">Gujrathi</option>
+                    <option value="Punjabi">Punjabi</option>
+                    <option value="Bhojpuri">Bhojpuri</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <small *ngIf="addSongForm.get('songLanguage').errors?.['required'] && addSongForm.get('songLanguage').touched">
+                  *Please select song language
+                </small>
+                <div class="form-item">
+                  <label for="imageFile">Select Song Cover:</label>
+                  <input type="file" (change)="onCoverSelected($event)" id="imageFile" accept="image/*">
+                </div>
+                <div class="form-item">
+                  <label for="audioFile">Select Song file:</label>
+                  <input type="file" (change)="onAudioSelected($event)" id="audioFile" accept="audio/*">
+                </div>
+                <button class="btn" type="submit" [disabled]="!addSongForm.valid || imageFile == null || audioFile == null">Add Song</button>
+              </form>
+            </div>
+      
+          
+
+            <!-- Artist songs -->
+            <div class="song-Container" style="margin-top: 55px;">
+              <div class="cardHeader">
+                  <h2>Your Songs</h2>
+                  <!-- <a href="#" class="btn">View All</a> -->
+              </div>
+              <div class="not-found-msg" *ngIf="songList.length === 0">
+                <p>No songs found! Please add new songs.</p>
+              </div>
+              <div class="card-container">
+                <div class="music-card" *ngFor="let music of songList">
+                  <img src="{{music.imageFilePath}}" alt="">
+                  <div class="song-details">
+                    <h3 class="song-title">{{ music.songName }}</h3>
+                    <p>{{ music.artistName }}</p>
+                    <div class="ratings">
+                      <ion-icon *ngFor="let star of getStarRating(music.averageRating)" [name]="star" class="gold-star"></ion-icon>
+                    </div>
+                    <div class="more-info">
+                      <span class="category">{{ music.category }}</span>
+                      <span class="language">{{ music.language }}</span>
+                    </div>
+                    <div class="play">
+                      <a routerLink="/artist/dashboard/song-analytics/{{music.id}}">
+                        <span style="padding: 16px 22px; background-color: #4f94f1;" class="fa fa-info"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+      </div>
+    
+    </div>
+  </div>
