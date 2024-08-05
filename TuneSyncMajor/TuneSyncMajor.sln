@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuneSyncMajor", "TuneSyncMajor.csproj", "{F35E87C5-A631-456A-9A9C-D7BDD9F6884B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F35E87C5-A631-456A-9A9C-D7BDD9F6884B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F35E87C5-A631-456A-9A9C-D7BDD9F6884B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F35E87C5-A631-456A-9A9C-D7BDD9F6884B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F35E87C5-A631-456A-9A9C-D7BDD9F6884B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DBE2C12-4FC8-4F44-8358-2CE6C598EB93}
+	EndGlobalSection
+EndGlobal
