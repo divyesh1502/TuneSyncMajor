@@ -1,0 +1,65 @@
+<!-- Load the custom CSS style file -->
+<div class="main-container">
+    <app-side-bar></app-side-bar>
+    <div class="main">
+        <app-top-bar (toggleMenu)="toggleNavigation()"></app-top-bar>
+
+        <div class="details">
+            <div class="player">
+                <!-- Define the section for displaying details -->
+                <div class="music-details">
+                    <div class="now-playing">PLAYING {{currentIndex + 1}} OF {{songs.length}}</div>
+                    <div class="track-art-carousel">
+                        <div class="track-art-container">
+                            <div class="track-art"
+                                [style.background-image]="'url(assets/images/'+ songs[currentIndex]?.imageFilePath + ')'">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="track-name">{{ songs[currentIndex]?.songName }}</div>
+                    <div class="track-artist">{{ artistName }}</div>
+                </div>
+
+                <!-- Define the section for displaying track buttons -->
+                <div class="buttons">
+
+
+                    <div class="prev-track" (click)="playPrevious()">
+                        <i class="fa fa-step-backward fa-2x"></i>
+                    </div>
+
+                    <div class="playpause-track" (click)="playAudio()">
+                        <i *ngIf="currentlyPlaying && currentlyPlaying.playing()" class="fa fa-pause-circle fa-5x"></i>
+                        <i *ngIf="!(currentlyPlaying && currentlyPlaying.playing())"
+                            class="fa fa-play-circle fa-5x"></i>
+                    </div>
+
+                    <div class="next-track" (click)="playNext()">
+                        <i class="fa fa-step-forward fa-2x"></i>
+                    </div>
+                    
+                </div>
+
+                <!-- Define the section for displaying the seek slider-->
+                <div class="slider_container">
+                    <div class="current-time">{{ formatTime(currentTime) }}</div>
+                    <input type="range" min="0" max="100" [value]="progress || 0" class="seek_slider"
+                        (input)="seekTo($event)">
+                    <div class="total-duration">{{ formatTime(duration) }}</div>
+                </div>
+
+                <!-- Define the section for displaying the volume slider-->
+                <div class="slider_container">
+                    <i class="fa fa-volume-down"></i>
+                    <input type="range" min="0" max="100" [value]="volume * 100" class="volume_slider"
+                        (input)="setVolume($event)">
+                    <i class="fa fa-volume-up"></i>
+                </div>
+            </div>
+
+            <app-user-song-review [songId]="songs[currentIndex]?.id"></app-user-song-review>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.contact-info {
+    margin-top: 40px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.contact-info h2 {
+    color: #007bff;
+    cursor: pointer;
+    list-style-type: none; /* Remove default bullet */
+    margin-left: -25px; /* Adjust margin for the question */
+    padding-left: 20px; /* Add padding for the bullet */
+    position: relative; /* Position relative for ::before pseudo-element */
+}
+
+.contact-info h2::before {
+    content: "\2022"; /* Unicode for bullet character */
+    color: #007bff; /* Color of the bullet */
+    position: absolute;
+    left: 0;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    display: none;
+}
+
+.contact-info p.email {
+    font-weight: bold;
+}

@@ -1,0 +1,27 @@
+<div class="song-Container">
+    <div class="cardHeader">
+      <h2>Your Playlist</h2>
+      <a routerLink="/library/create-playlist" class="btn">Create New Playlist</a>
+    </div>
+  
+  
+    <div class="card-container">
+      <div style="color: gray;" *ngIf="allPlaylist.length == 0">
+        No playlist to show.. Please create new one.
+      </div>
+      <div class="playlist-card" *ngFor="let playlist of allPlaylist">
+        <div class="playlist-info" routerLink="/library/playlist/{{playlist.playlist_Id}}">
+          <div class="playlist-cover">
+            <p>{{playlist.playlist_Name[0] | uppercase}}</p>
+          </div>
+          <div class="playlist-details">
+            <h2>{{playlist.playlist_Name}} Playlist</h2>
+            <p>{{playlist.songs_in_List | countCommas}} Songs</p>
+          </div>
+        </div>
+        <div class="playlist-options">
+          <button style="border: none;" (click)="onDeletePlaylist(playlist.playlist_Id)" type="button"><ion-icon name="trash-outline"></ion-icon></button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+<div class="main-container">
+    <app-side-bar></app-side-bar>
+  
+    <div class="main">
+      <app-top-bar (toggleMenu)="toggleNavigation()"></app-top-bar>
+  
+      <div class="details">
+        <div class="song-Container">
+          <div class="cardHeader">
+            <h2>Categories</h2>
+          </div>
+  
+          <div class="card-container">
+            <div class="category-card" *ngFor="let category of categories">
+              <div class="category-card-content" routerLink="/categories/{{category}}">
+                <h2 class="card-title">{{ category }}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>

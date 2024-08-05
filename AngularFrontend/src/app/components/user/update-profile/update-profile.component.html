@@ -1,0 +1,84 @@
+<div class="main-container">
+    <app-side-bar></app-side-bar>
+    <div class="main">
+        <app-top-bar></app-top-bar>
+        <div class="details">
+            <div class="cardHeader">
+                <h2>Update Profile</h2>
+            </div>
+            <div class="form-container">
+                <form style="width: 60%;" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                    <div class="form-item">
+                        <img src="assets/profileImages/{{showUserImg}}" alt="">
+                    </div>
+                    <div class="row">
+                        <div class="form-item col-6">
+                            <label for="fullName">Update Name:</label>
+                            <input type="text" formControlName="fullName" id="fullName">
+                            <div *ngIf="profileForm.get('fullName').invalid && profileForm.get('fullName').touched"
+                                class="error-message">
+                                Full Name is required.
+                            </div>
+                        </div>
+                        <div class="form-item col-6">
+                            <label for="phone">Update Phone Number:</label>
+                            <input type="number" formControlName="phone" id="phone">
+                            <div *ngIf="profileForm.get('phone').invalid && profileForm.get('phone').touched"
+                                class="error-message">
+                                Enter a valid email address.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="avatar">Update Profile Image:</label>
+
+                        <input type="file" id="avatar" name="avatar" accept="image/*" (change)="onFileSelected($event)">
+                        <div *ngIf="profileForm.get('avatar').invalid && profileForm.get('avatar').touched"
+                            class="error-message">
+                            Avatar is required.
+                        </div>
+                    </div>
+
+                    <button class="btn" type="submit" [disabled]="profileForm.invalid">Update Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- <div class="form-container">
+    <form [formGroup]="passwordForm" style="width: 60%;" (ngSubmit)="updatePassword()">
+        <div class="form-item">
+            <label for="oldPassword">Old Password:</label>
+            <input type="password" id="oldPassword" formControlName="oldPassword">
+            <div *ngIf="profileForm.get('oldPassword').invalid && profileForm.get('oldPassword').touched"
+                class="error-message">
+                Old Password is required.
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" formControlName="newPassword">
+            <div *ngIf="profileForm.get('newPassword').invalid && profileForm.get('newPassword').touched"
+                class="error-message">
+                New Password is required and must be at least 6 characters long.
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="confirmPassword">Confirm New Password:</label>
+            <input type="password" id="confirmPassword" formControlName="confirmPassword">
+            <div *ngIf="profileForm.get('confirmPassword').invalid && profileForm.get('confirmPassword').touched"
+                class="error-message">
+                Confirm Password is required and must match the New Password.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid">Update
+            Password</button>
+    </form>
+
+</div> -->

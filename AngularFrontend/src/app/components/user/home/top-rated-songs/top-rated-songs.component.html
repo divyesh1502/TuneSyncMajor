@@ -1,0 +1,29 @@
+<div class="song-Container">
+    <div class="cardHeader">
+        <h2>Top Rated Songs</h2>
+        <a href="#" class="btn">View All</a>
+    </div>
+    
+
+    <div class="card-container">
+        <div class="music-card" *ngFor="let song of topRatedSongs">
+            <img src={{song.imageFilePath}} alt="">
+            <div class="song-details">
+                <h3 class="song-title">{{song.songName}}</h3>
+                <p>{{song.artistName}}</p>
+                <div class="ratings">
+                    <ion-icon *ngFor="let star of getStarRating(song.averageRating)" [name]="star" class="gold-star"></ion-icon>
+                  </div>
+                <div class="more-info">
+                    <span class="category">Romantic</span>
+                    <span class="language">Hindi</span>
+                </div>
+                <div class="play">
+                    <a routerLink="/home/play-music/{{song.id}}">
+                        <span class="fa fa-play"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

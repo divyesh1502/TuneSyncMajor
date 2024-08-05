@@ -1,0 +1,93 @@
+<div class="song-Container">
+    <div class="cardHeader">
+      <h2>Review & Ratings</h2>
+      <!-- <a href="#" class="btn">Create New Playlist</a> -->
+    </div>
+  
+  
+    <div class="card-container">
+  
+      <div class="ratings-reviews-info">
+
+        <div class="left-sec">
+          <div class="average-rating-details">
+            <h2>{{averageRatingCnt | number:'1.1-1'}} <ion-icon name="star"></ion-icon></h2>
+            <p>{{reviewData.length}} Verified Listener</p>
+          </div>
+        </div>
+        <div class="right-sec">
+          <div class="rating-row">
+            <p>5 <ion-icon name="star"></ion-icon></p>
+            <div class="progress-bar" style="background-color: #569756;"></div>
+            <p>{{ratingCnt["5"]}}</p>
+          </div>
+          <div class="rating-row">
+            <p>4 <ion-icon name="star"></ion-icon></p>
+            <div class="progress-bar" style="background-color: #569756;"></div>
+            <p>{{ratingCnt["4"]}}</p>
+          </div>
+          <div class="rating-row">
+            <p>3 <ion-icon name="star"></ion-icon></p>
+            <div class="progress-bar" style="background-color: rgb(51 124 14);"></div>
+            <p>{{ratingCnt["3"]}}</p>
+          </div>
+          <div class="rating-row">
+            <p>2 <ion-icon name="star"></ion-icon></p>
+            <div class="progress-bar" style="background-color: rgb(223, 168, 16);"></div>
+            <p>{{ratingCnt["2"]}}</p>
+          </div>
+          <div class="rating-row">
+            <p>1 <ion-icon name="star"></ion-icon></p>
+            <div class="progress-bar" style="background-color: rgb(203, 41, 41);"></div>
+            <p>{{ratingCnt["1"]}}</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="card-title" style="width: 100%;">
+        <h2>Write a song review</h2>
+      </div>
+      <div class="rating-reviews-form">
+        <form (ngSubmit)="submitReview()">
+          <div class="review-form-control">
+            <label for="">How would you rate it?</label>
+            <div class="review-form-star">
+              <ion-icon *ngFor="let star of stars; let i = index" 
+                    [name]="isStarFilled(i) ? 'star' : 'star-outline'"
+                    (click)="selectStar(i)"
+                    [ngClass]="{'filled-star': isStarFilled(i)}">
+          </ion-icon>
+            </div>
+          </div>
+          <div class="review-form-control">
+            <label for="">Title your review</label>
+            <input type="text" name="reviewTitle" [(ngModel)]="reviewTitle" placeholder="What's most important to know?">
+          </div>
+          <div class="review-form-control">
+            <label for="">Write your review</label>
+            <textarea name="reviewContent" [(ngModel)]="reviewContent" cols="30" rows="5" placeholder="What did you like or dislike?"></textarea>
+          </div>
+          <button style="width: 15%;padding: 6px 9px;" class="btn" type="submit">Submit</button>
+        </form>
+      </div>
+  
+      <div class="rating-reviews-lists">
+        <div class="review-card" *ngFor="let review of reviewData">
+          <div class="user-info">
+            <img src="{{review.userImg}}" alt="img">
+            <p>{{review.userName}}</p>
+          </div>
+          <div class="ratings-star">
+            <ion-icon *ngFor="let i of getLoopCount(review.rating)" name="star"></ion-icon>
+            <ion-icon *ngFor="let i of getLoopCount(review.notRatingStarCnt)" name="star-outline"></ion-icon>
+          </div>
+          <div class="review-info">
+            <h3 class="review-title">{{review.review_title}}</h3>
+            <p class="review-desc">{{review.review_desc}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>

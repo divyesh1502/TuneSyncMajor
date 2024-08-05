@@ -1,0 +1,47 @@
+<div class="song-Container">
+    <!-- <div class="cardHeader">
+      <h2>Gym Playlist</h2>
+      <a href="#" class="btn">Create New Playlist</a>
+    </div> -->
+  
+  
+    <div class="card-container">
+      <div class="playlist-hero-container">
+        <div class="playlist-item-cover">
+          <p>{{ playlistDetails?.playlist_Name ? (playlistDetails.playlist_Name[0] | uppercase) : '' }}</p>
+        </div>
+        <div class="playlist-item-details">
+          <h2>{{playlistDetails?.playlist_Name}} Playlist</h2>
+          <p><ion-icon name="musical-notes-outline"></ion-icon> {{playlistDetails.songs_in_List?.length }} Songs</p>
+        </div>
+      </div>
+  
+      <div class="playlist-table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Artist</th>
+              <th style="text-align:center">Play</th>
+              <th style="text-align:center">Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let song of sortedSongList; let i = index">
+              <td>{{i+1}}</td>
+              <td>
+                <div class="song-info">
+                  <img src="assets/images/{{song.imageFilePath}}" width="100" alt="img">
+                  <p>{{song.songName}}</p>
+                </div>
+              </td>
+              <td>{{song.artistName}}</td>
+              <td class="play-btn"><ion-icon routerLink="/library/playlist/play-music/{{playlistDetails.playlist_Id}}" name="play-circle"></ion-icon></td>
+              <td (click)="removeFromPlaylist(song.id)" class="remove-btn"><ion-icon name="close-circle"></ion-icon></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

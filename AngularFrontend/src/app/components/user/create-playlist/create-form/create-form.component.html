@@ -1,0 +1,51 @@
+<div class="song-Container">
+
+    <div class="card-container">
+      <form [formGroup]="createPlaylistForm" (ngSubmit)="onCreatePlaylistSubmit()">
+        <div class="playlist-hero-container">
+          <div class="playlist-item-cover">
+            <p>{{coverLetter}}</p>
+          </div>
+          <div class="playlist-item-details">
+            <div class="playlist-form-item">
+              <input type="text" (change)="updateCoverLetter($event)" placeholder="Enter Playlist Name" formControlName="playlistTitle">
+              <div class="error-msg" *ngIf="createPlaylistForm.get('playlistTitle').invalid && createPlaylistForm.get('playlistTitle').touched">*Title is required</div>
+            </div>
+            <p><ion-icon name="musical-notes-outline"></ion-icon> {{songsCnt}} Songs</p>
+            <input class="btn w-25" type="submit" value="Create Playlist" [disabled]="createPlaylistForm.invalid">
+  
+            <div class="error-msg">
+              {{emptySongListMsg}}
+            </div>
+          </div>
+        </div>
+    
+        <div class="playlist-table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Artist</th>
+                <th style="text-align:center">Add/Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let song of songsList; index as i">
+                <td>{{i+1}}</td>
+                <td>
+                  <div class="song-info">
+                    <img src="assets/images/{{song.imageFilePath}}" width="100" alt="img">
+                    <p>{{song.songName}}</p>
+                  </div>
+                </td>
+                <td>{{song.artistName}}</td>
+                <td class="play-btn"><ion-icon name="add-circle" (click)="addRemoveToPlaylist($event, song.id)"></ion-icon></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </form>
+    </div>
+  </div>

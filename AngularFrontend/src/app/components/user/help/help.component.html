@@ -1,0 +1,26 @@
+<div class="main-container">
+    <app-side-bar></app-side-bar>
+    <div class="main">
+        <app-top-bar (toggleMenu)="toggleNavigation()"></app-top-bar>
+        <div class="details">
+            <div class="song-Container">
+                <div class="cardHeader">
+                    <h2>Welcome To The TuneSync Helpdesk</h2>
+                </div>
+                <div class="contact-info">
+                    <h2 (click)="toggleAnswer('search')">How do I search for songs?</h2>
+                    <p id="search" [style.display]="searchVisible ? 'block' : 'none'">To search for songs, simply use the search bar located at the top of the page. Enter the song title, artist name, or any keywords related to the song you're looking for.</p>
+                    <h2 (click)="toggleAnswer('play')">How do I play a song?</h2>
+                    <p id="play" [style.display]="playVisible ? 'block' : 'none'">To play a song, click on the song title from the search results or browse through our song catalog. Once you've found the song you want to play, click on the play button.</p>
+                    <h2 (click)="toggleAnswer('playlist')">How do I create a playlist?</h2>
+                    <p id="playlist" [style.display]="playlistVisible ? 'block' : 'none'">To create a playlist, you'll need to sign up for an account. Once logged in, you can create a new playlist by clicking on the "Create Playlist" button. Give your playlist a name and start adding songs to it.</p>
+                    <h2 (click)="toggleAnswer('contact')">How can I contact support?</h2>
+                    <div id="contact" [style.display]="contactVisible ? 'block' : 'none'">
+                        <p>If you have any further questions or need assistance, please don't hesitate to contact our support team:</p>
+                        <p class="email">Email: support.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
